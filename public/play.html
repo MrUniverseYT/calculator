@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Play Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+  <h1 id="gameTitle">Loading...</h1>
+  <div class="nav-links">
+    <a href="/games.html">Back</a>
+    <button id="fullscreenBtn" class="btn btn-small" type="button">
+      Fullscreen
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <div id="gameContainer" class="game-frame-container">
+    <iframe id="gameFrame" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+  const GAMES = {
+    run3: {
+      name: "Run 3",
+      url: "/run3/index.html"
+    },
+    pyl: {
+      name: "Push Your Luck",
+      url: "/pushyourluck/index.html"
+    },
+    db: {
+      name: "Drift Boss",
+      url: "/driftboss/index.html"
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const gameId = params.get("game");
+  const game = GAMES[gameId];
+
+  const gameTitle = document.getElementById("gameTitle");
+  const gameFrame = document.getElementById("gameFrame");
+
+  if (!game) {
+    gameTitle.textContent = "Game not found";
+  } else {
+    gameTitle.textContent = game.name;
+    gameFrame.src = game.url;
+  }
+
+  // Fullscreen toggle on the container
+  const fullscreenBtn = document.getElementById("fullscreenBtn");
+  const gameContainer = document.getElementById("gameContainer");
+
+  fullscreenBtn.addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+      gameContainer.requestFullscreen().catch(err => {
+        console.error("Error attempting fullscreen:", err);
+      });
+    } else {
+      document.exitFullscreen().catch(err => {
+        console.error("Error exiting fullscreen:", err);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Code Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Admin – Generate Access Codes</h2>
+
+  <button class="btn" onclick="generateCode()">Generate New Code</button>
+
+  <p id="generated"></p>
+
+  <h3>All Codes</h3>
+  <table id="codeTable">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Activated</th>
+        <th>Expires At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script src="script-admin.js"></script>
+</body>
+</html>
