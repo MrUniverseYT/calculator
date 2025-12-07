@@ -3,7 +3,7 @@
 // Load codes.json and check if a code is valid & not expired
 async function checkCodeValid(inputCode) {
   try {
-    const res = await fetch("codes.json", { cache: "no-cache" });
+    const res = await fetch("../codes.json", { cache: "no-cache" });
     if (!res.ok) {
       console.error("Failed to load codes.json:", res.status);
       return { ok: false, reason: "server" };
