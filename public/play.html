@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Play Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="requireAccess()">
 
 <div class="navbar">
   <h1 id="gameTitle">Loading...</h1>
   <div class="nav-links">
-    <a href="/games.html">Back</a>
+    <!-- use relative path so it works on GitHub Pages project sites -->
+    <a href="games.html">Back</a>
     <button id="fullscreenBtn" class="btn btn-small" type="button">
       Fullscreen
     </button>
@@ -22,19 +24,23 @@
   </div>
 </div>
 
+<!-- access-code logic (defines requireAccess) -->
+<script src="script.js"></script>
+
 <script>
+  // Game list – paths are relative so they work both locally and on GitHub Pages
   const GAMES = {
     run3: {
       name: "Run 3",
-      url: "/run3/index.html"
+      url: "run3/index.html"
     },
     pyl: {
       name: "Push Your Luck",
-      url: "/pushyourluck/index.html"
+      url: "pushyourluck/index.html"
     },
     db: {
       name: "Drift Boss",
-      url: "/driftboss/index.html"
+      url: "driftboss/index.html"
     }
   };
 
